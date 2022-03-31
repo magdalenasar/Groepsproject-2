@@ -1,2 +1,2 @@
 # Groepsproject-II-Full-Stack
-Full Stack project - Tijl, Steven, Magdalena
+Syntra Full Stack project - Tijl, Steven, Magdalena
