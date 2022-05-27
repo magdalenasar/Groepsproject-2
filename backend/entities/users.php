@@ -9,7 +9,7 @@ function ApiGetUsers($id = null)
     $results = array();
 
     //alle users
-    $sql = "select usr_id, usr_name as name, usr_surname as surname, usr_email as email from user";
+    $sql = "select usr_id, usr_name as name, usr_surname as surname, usr_email as email, usr_password as pass from user";
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
         $sql .= " where usr_id=$id";
@@ -21,6 +21,7 @@ function ApiGetUsers($id = null)
         $row['name'] = COutputText( $row['name'] );
         $row['surname'] = COutputText( $row['surname'] );
         $row['email'] = COutputText( $row['email'] );
+        $row['pass'] = COutputText( $row['pass'] );
 
         $results[] = $row;
     }
@@ -38,20 +39,24 @@ function ApiCreateUser()
     $name = $contents->name;
     $surname = $contents->surname;
     $email = $contents->email;
+    $password = $contents->password;
 
     //naam van de user ophalen
-    $sql = "select usr_id, usr_name, usr_surname from user WHERE usr_id=$id";
+    $sql = "select usr_id, usr_name, usr_surname from user WHERE usr_email=$email";
     $dsUsers = new DataSet($sql, $conn, true);
 
-    if ( count($dsUsers) == 0 ) ErrorMessageAndExit( "Didnt find user with id '$id'. " );
+    if ( count($dsUsers) > 0 ) ErrorMessageAndExit( "User $email already exists" );
 
-    //update statement maken
-    $upd = " update user SET usr_name='$name', usr_surname='$surname', usr_email='$email' " .
-                  " where usr_id=$id";
+    //insert statement maken
+    $ins = " INSERT INTO user SET" .
+            "usr_name='$name', " .
+            "usr_surname='$surname', " .
+            "usr_email='$email', " .
+            "usr_password='$password'";
 
-    $cmd = new SQLCommand($upd, $conn, true);
+    $cmd = new SQLCommand($ins, $conn, true);
 
-    ReturnOKMessage("Data of user $id was send for modification");
+    ReturnOKMessage("New user created");
 }
 
 //---------------------------------------------------------
@@ -64,6 +69,7 @@ function ApiUpdateUser( $id )
     $name = $contents->name;
     $surname = $contents->surname;
     $email = $contents->email;
+    $password = $contents->password;
 
     //naam van de user ophalen
     $sql = "select usr_id, usr_name, usr_surname from user WHERE usr_id=$id";
@@ -72,7 +78,7 @@ function ApiUpdateUser( $id )
     if ( count($dsUsers) == 0 ) ErrorMessageAndExit( "Didnt find user with id '$id'. " );
 
     //update statement maken
-    $upd = " update user SET usr_name='$name', usr_surname='$surname', usr_email='$email' " .
+    $upd = " update user SET usr_name='$name', usr_surname='$surname', usr_email='$email', usr_password='$password' " .
         " where usr_id=$id";
 
     $cmd = new SQLCommand($upd, $conn, true);
@@ -91,7 +97,7 @@ function ApiDeleteUser( $id )
 
     if ( count($dsUsers) == 0 ) ErrorMessageAndExit( "Didnt find user with id '$id'. " );
 
-    //update statement maken
+    //delete statement maken
     $del = " delete from user WHERE usr_id='$id'";
     $cmd = new SQLCommand($del, $conn, true);
 

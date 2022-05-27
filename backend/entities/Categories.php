@@ -2,7 +2,7 @@
 require_once "lib/bootstrap.php";
 setlocale(LC_CTYPE, 'nl_BE.utf8');
 
-function ApiGetCategories( $id = null)
+function ApiGetCategories()
 {
     global $conn;
 
@@ -11,15 +11,14 @@ function ApiGetCategories( $id = null)
     $fields[] = "typ_naam as naam";
 
     $sql = "select  DISTINCT " . implode(",", $fields ) . " from types";
-    if ( $id > 0 ) $sql .= " WHERE med_id = $id " ;
 
-    $ds = new DataSet($sql, $conn, true);
+    $dsCategory = new DataSet($sql, $conn, true);
 
-    foreach( $ds->rows as $key => $row )
+    foreach( $dsCategory->rows as $row )
     {
-        $ds->rows[$key]['id'] = COutputText( $row['id'] );
-        $ds->rows[$key]['naam'] = COutputText( $row['naam'] );
+        $row['id'] = COutputText( $row['id'] );
+        $row['naam'] = COutputText( $row['naam'] );
     }
 
-    ReturnResults($ds->rows);
+    ReturnResults($dsCategory->rows);
 }
