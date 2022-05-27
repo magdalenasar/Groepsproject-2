@@ -1,4 +1,4 @@
-import Title from "./Title";
+import Title from "../base_components/Title";
 import Row from "./Row";
 
 const Slider = props => {

@@ -1,74 +1,227 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz@6..96&family=Rubik:wght@300&display=swap');
+
+// color palette:
+$accent-color: #F7865E;
+$font-brand: 'Bodoni Moda', sans-serif;
+$font-titles: 'Arial Black';
+$font-body: 'Rubic', sans-serif;
+$textColor-body: #555555;
+$blue: #EDF2F8;
+$light-accent: #FCE9E2;
+
+
 *,::after,::before{
   box-sizing: border-box;
   margin: 0;
+  padding: 0;
+  background-color: $blue;
 }
 
 body{
-  background-color: #3b424a;
-  button{
-    border: none;
-  }
+  font-family:$font-body;
+  font-weight: 100;
+  color: $textColor-body;
+
   .header{
     display: flex;
     flex-direction: column;
     align-items: center;
+
     .navbar{
       display: inherit;
       align-items: center;
       justify-content: space-between;
       width: 100%;
-      padding: 20px 20px 0px 20px;
+      padding: 40px 40px 0px 40px;
 
       button{
+        border: none;
         background-color: #EDF2F8;
         font-size: 20px;
-        font-weight: 800;
         margin-bottom: 20px;
+
+        &:active {
+         opacity: 0.5;
+         transform: translateY(4px);
+        }
+
       }
+
       .img{
-        width: 25%;
+        width: 55%;
         height: auto;
-        border-radius: 50%;
       }
       .left{
         display: inherit;
         align-items: center;
+
         .home{
           margin: 0 20px 20px 40px;
         }
       }
     }
     .brand{
-        display: flex ;
-        align-items: flex-end;
-        font-family: Georgia, 'Times New Roman', Times, serif;
-        padding-bottom: 40px;
-      .brand_h2_h1{    
-        .brand_h1_1{
-          font-size: 44px;
-          padding: 0 10px 6px 0;
-        }
-        .brand_h2{
-          font-size: 12px;
-          font-family: Georgia, 'Times New Roman', Times, serif;
-        }    
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: $font-brand;
+      padding-bottom: 1%;
+      color: black;
+
+      &_h2_h1{    
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 1.3rem;
         
+        // &_h2{
+        //   letter-spacing: -1.5px;
+        // }    
+        // &_h1_1{
+        //   font-size: 4rem;
+
+        // }
+      }
+      &_h1_2 {
+        font-size: 7rem;
+      }
+      
     }
-    .brand_h1_2{
-      font-size: 73px;
-    }
-    }
-    .random{
-      font-family: arial black;
-      font-size: 18px;
-      font-weight: 700;
-      color: #F7865E;
-      padding: 10px;
-      margin-bottom: 40px;
-      border-radius: 50px;
+
+    .random {
+      color: $accent-color;
+      background-color: $light-accent;
+      border: none;
+      padding: 15px 32px;
+      font-size: 16px;
+      border-radius: 20px;
+      margin-bottom: 60px;
+      box-shadow: 5px 10px 18px #d3e1f2;
+      cursor: pointer;
+
+      &:active {
+        transform: translateY(4px);
+      }
+
+      &:hover {
+        transition-duration: 0.4s;
+        color: $light-accent;
+        background-color: $accent-color;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+
     }
   }
-  .main{}
+  main{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 10px;
+
+    .strikethrough-title{
+      color: black;
+      font-family: Arial Black;
+      font-size: 24px;
+      padding: 0 10px;
+      margin-left: -4px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 5%;
+    
+      &::before {
+        content: "";
+        border-top: solid 5px $accent-color;
+        // width: 19.5%;  // Make it later adjustable
+        min-width: 5em;
+        padding-left: 1px;
+        position: absolute;
+        top: 45%;
+        left: -15px;
+        z-index: -1;
+      }
+    }
+    
+    .contact{
+      display: flex;
+      flex-direction: row;
+      gap: 5%;
+      
+      &-team{
+        width: 20%;
+
+        .chips {
+          display: flex;
+          flex-direction: column;
+          // align-items: start;
+          // justify-content: center;
+          // width: auto;
+          overflow: hidden;
+          
+          .chip{
+            text-align: center;
+            padding: 0 25px;
+            height: auto;
+            font-size: 16px;
+            line-height: 50px;
+            border-radius: 25px;
+            background-color: $light-accent;
+            margin-bottom: 10%;
+            width: 100%;
+            
+            &:hover {
+              transition-duration: 0.4s;
+              color: $light-accent;
+              background-color: $accent-color;
+            }
+    
+            img {
+              float: left;
+              margin: 0 10px 0 -25px;
+              height: 50px;
+              width: 50px;
+              border-radius: 50%;
+            }
+          }
+        }
+      }
+
+      &-form{
+        background-color: red;
+        color: pink;
+        width: 100%;
+          // animation: fadeInUp 2s 2s;
+            // animation-fill-mode: forwards;
+        &__half {
+          width: 49%;
+          margin-left: 2%;
+          display: flex;
+          clear: none;
+        }
+        input{
+          // padding: 0;
+          // margin: 0;
+          // margin-bottom: 10px;
+          // overflow: hidden;
+          // display: block;
+          position: relative;
+          // opacity: 0;
+          // clear: both;
+        }
+      }
+    }
+  }
+
+  // Styling for login form
+  /* The popup form - hidden by default */
+  .form-popup {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+  }
+
   .footer{
     display: flex;
     flex-direction: column;
@@ -77,5 +230,27 @@ body{
     font-size: 14px;
     font-weight: 800;
   }
+
+  a,
+  a:hover,
+  a:visited,
+  a:active {
+    color: inherit;
+    text-decoration: none;
+    background-color: inherit;
+
+
+    &:active {
+      transform: translateY(4px);
+    }
+  }
 }
 
+
+@media screen and (max-width: 600px) {
+
+  input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}

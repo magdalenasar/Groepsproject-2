@@ -1,11 +1,11 @@
-import Title from "./Title";
+import Title from "../base_components/Title";
 import Grid from "./Grid";
 
 const Gallery = props => {
   const { className } = props;
   return (
     <div className={className}>
-      <Title>Activity categories</Title>
+      <Title className='strikethrough-title'>Activity categories</Title>
       <Grid />
     </div>
   );
