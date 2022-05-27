@@ -5,10 +5,11 @@ setlocale(LC_CTYPE, 'nl_BE.utf8');
 function ApiGetCategories()
 {
     global $conn;
+    $results = array();
 
     $fields = array();
     $fields[] = "typ_id as id";
-    $fields[] = "typ_naam as naam";
+    $fields[] = "typ_name as name";
 
     $sql = "select  DISTINCT " . implode(",", $fields ) . " from types";
 
@@ -17,8 +18,10 @@ function ApiGetCategories()
     foreach( $dsCategory->rows as $row )
     {
         $row['id'] = COutputText( $row['id'] );
-        $row['naam'] = COutputText( $row['naam'] );
+        $row['name'] = COutputText( $row['name'] );
+
+        $results[] = $row;
     }
 
-    ReturnResults($dsCategory->rows);
+    ReturnResults( $results );
 }

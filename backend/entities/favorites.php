@@ -5,19 +5,22 @@ setlocale(LC_CTYPE, 'nl_BE.utf8');
 function ApiGetFavorites( $id = null)
 {
     global $conn;
+    $results = array();
 
     $fields = array();
     $fields[] = "usr_act_id";
-    $fields[] = "act_title";
-    $fields[] = "usr_name";
+    $fields[] = "act_title as title";
+    $fields[] = "usr_name as name";
+    $fields[] = "usr_surname as surname";
     $fields[] = "usr_act_favorite";
 
     $sql = "select  DISTINCT " . implode(",", $fields ) . " from usr_act ua" .
                 " INNER JOIN activities a ON ua.act_id=a.act_id " .
-                " INNER JOIN user u ON ua.usr_id=u.usr_id";
+                " INNER JOIN user u ON ua.usr_id=u.usr_id" .
+                " where ua.usr_act_favorite='1'";
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
-        $sql .= " where usr_id=$id";
+        $sql .= " AND ua.usr_id=$id";
     }
 
     $dsFavorites = new DataSet($sql, $conn, true);
@@ -26,8 +29,8 @@ function ApiGetFavorites( $id = null)
     {
         $row['name'] = COutputText( $row['name'] );
         $row['surname'] = COutputText( $row['surname'] );
-        $row['email'] = COutputText( $row['email'] );
-        $row['pass'] = COutputText( $row['pass'] );
+        $row['title'] = COutputText( $row['title'] );
+        $row['title'] = COutputText( $row['title'] );
 
         $results[] = $row;
     }

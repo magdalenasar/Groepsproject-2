@@ -21,7 +21,7 @@ function ApiGetActivities($id = null) {
     {
         $row['act_id'] = COutputText( $row['act_id'] );
         $row['act_title'] = COutputText( $row['act_title'] );
-        $row['act_availlability'] = COutputText( $row['act_availlability'] );
+        $row['act_availability'] = COutputText( $row['act_availability'] );
         $row['act_type'] = COutputText( $row['act_type'] );
         $row['act_participants'] = COutputText( $row['act_participants'] );
         $row['act_activity'] = COutputText( $row['act_activity'] );
