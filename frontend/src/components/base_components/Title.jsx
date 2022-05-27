@@ -2,7 +2,7 @@ const Title = props => {
   const { children } = props;
   return (
     <>
-      <h3>{children}</h3>
+      <h3 className="strikethrough-title">{children}</h3>
     </>
   );
 };
