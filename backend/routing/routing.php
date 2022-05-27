@@ -5,9 +5,9 @@ $route_found = false;
 
 $parts = explode("/", $request);
 //var_dump($parts);
-$route = $parts[2];
-if(count($parts) > 3) $params = $parts[3];
-if(count($parts) > 4) $subroute = $parts[4];
+$route = $parts[3];
+if(count($parts) > 4) $params = $parts[3];
+if(count($parts) > 5) $subroute = $parts[4];
 
 $subroute = "";
 
