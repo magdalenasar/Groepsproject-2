@@ -194,38 +194,3 @@ function ApiDeleteUserActivity( $id )
 
     ReturnOKMessage("Data of activity $act_id was deleted");
 }
-
-//---------------------------------------------------------
-
-function ApiBegeleiderVerwijderen( $vpl_id )
-{
-    global $conn;
-
-    //doorgestuurde data ophalen
-    $contents = json_decode( file_get_contents("php://input") );
-
-    //doorgestuurde data aannemen
-    $med_id = $contents->med_id;
-
-    if ( ! ControleIntegerGT0( $vpl_id ) ) ErrorMessageAndExit( "Gelieve een geldig ID op te geven" );
-    if ( ! ControleIntegerGT0( $med_id ) ) ErrorMessageAndExit( "Gelieve een geldige med_id op te geven" );
-
-    //ccd_id ophalen
-    $sql = "select vpl_id from ccd_verplaatsing WHERE vpl_id=$vpl_id AND vpl_med_id=$med_id";
-    $dsContact = new DataSet($sql, $conn, true);
-
-    if ( $dsContact->rows[0]["vcc_id"] > 0 )
-    {
-        $vpl_id = $dsContact->rows[0]["vcc_id"];
-
-        //client verwijderen
-        $del = "DELETE FROM ccd_verplaatsing WHERE vpl_id=$vpl_id";
-        $cmd = new SQLCommand($del, $conn, true);
-    }
-    else
-    {
-        ErrorMessageAndExit( "Begeleider niet gevonden met ID $med_id" );
-    }
-
-    ReturnOKMessage("Begeleider $med_id is verwijderd uit verplaatsing");
-}
