@@ -4,7 +4,7 @@ $method = $_SERVER["REQUEST_METHOD"];
 $route_found = false;
 
 $parts = explode("/", $request);
-//var_dump($parts);
+var_dump($parts);
 $route = $parts[3];
 if(count($parts) > 4) $params = $parts[3];
 if(count($parts) > 5) $subroute = $parts[4];
@@ -54,6 +54,7 @@ switch( $route )
 
                             break;
     case "activities":      if ( $method == "GET" ) {  $route_found=true; ApiGetActivities();   }   //lijst van alle activities
+                            if ( $method == "POST" ) {  $route_found=true; ApiCreateActivity();   }   //nieuwe activity aanmaken
 
     case "activity":        if ( $method == "GET" AND  $params > 0 ) { $route_found=true; ApiGetActivities($params); } //detail 1 activity
                                 break;
