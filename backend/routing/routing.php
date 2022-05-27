@@ -20,41 +20,6 @@ if ( $subroute > "" AND strpos($subroute, "?") !== false )
 
 switch( $route )
 {
-/*
-    case "verplaatsing":        if ( $subroute == "begeleiders" )
-                                        {
-                                            if ( ! $params > 0 ) break;
-
-                                            //begeleider toevoegen aan verplaatsing
-                                            if ( $method == "POST" ) {  $route_found=true; ApiBegeleiderToevoegen($params);   }
-                                            //begeleider verwijderen uit verplaatsing
-                                            if ( $method == "DELETE" ) {  $route_found=true; ApiBegeleiderVerwijderen($params);   }
-                                        }
-                                        elseif ( $subroute == "clienten" )
-                                        {
-                                            if ( ! $params > 0 ) break;
-                                            //client toevoegen aan verplaatsing
-                                            if ( $method == "POST" ) {  $route_found=true; ApiClientToevoegen($params);   }
-                                            //client verwijderen uit verplaatsing
-                                            if ( $method == "DELETE" ) {  $route_found=true; ApiClientVerwijderen($params);   }
-                                        }
-                                        elseif ( $subroute == "" OR $subroute == null )
-                                        {
-                                                //verplaatsing wijzigen
-                                                if ($method == "PUT" and $params > 0) {
-                                                    $route_found = true;
-                                                    ApiUpdateVerplaatsing($params);
-                                                }
-                                                //verplaatsing verwijderen
-                                                if ($method == "DELETE" and $params > 0) {
-                                                    $route_found = true;
-                                                    ApiDeleteVerplaatsing($params);
-                                                }
-                                        }
-
-                                        break;
-*/
-
     case "users":          if ( $method == "GET" ) {  $route_found=true; ApiGetUsers();   }   //lijst van users
                                         break;
     case "user":            if ( $method == "GET" AND  $params > 0 ) { $route_found=true; ApiGetUsers($params); }  //details van 1 user
