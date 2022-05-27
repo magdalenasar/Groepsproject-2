@@ -189,7 +189,12 @@ function ApiDeleteUserActivity( $id )
     $act_id = $contents->act_id;
 
     //delete statement maken
+    /*
     $del = " delete from activities a INNER JOIN usr_act ua ON a.act_id=ua.act_id WHERE ua.usr_id='$id' AND ua.act_id=$act_id";
+    $cmd = new SQLCommand($del, $conn, true);
+    */
+
+    $del = " delete from usr_act ua WHERE ua.usr_id='$id' AND ua.act_id=$act_id";
     $cmd = new SQLCommand($del, $conn, true);
 
     ReturnOKMessage("Data of activity $act_id was deleted");
