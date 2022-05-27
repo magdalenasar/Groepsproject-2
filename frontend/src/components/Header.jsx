@@ -9,11 +9,11 @@ const Header = props => {
       <Navbar className="navbar" />
       <Brand
         className="brand"
-        h1child1="Get "
-        h1child2="inspired!"
         h2child="Don't be bored"
+        h1child1="GET"
+        h1child2="INSPIRED"
       />
-      <Button className="random">Get a Random activity idea!</Button>
+      <Button className="random">Get a Random activity idea → </Button>
     </header>
   );
 };
