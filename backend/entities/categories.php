@@ -10,6 +10,7 @@ function ApiGetCategories()
     $fields = array();
     $fields[] = "typ_id as id";
     $fields[] = "typ_name as name";
+    $fields[] = "typ_img as image";
 
     $sql = "select  DISTINCT " . implode(",", $fields ) . " from types";
 
@@ -19,6 +20,7 @@ function ApiGetCategories()
     {
         $row['id'] = COutputText( $row['id'] );
         $row['name'] = COutputText( $row['name'] );
+        $row['image'] = COutputText( $row['image'] );
 
         $results[] = $row;
     }

@@ -21,15 +21,13 @@ function ApiGetActivities($id = null) {
     {
         $row['act_id'] = COutputText( $row['act_id'] );
         $row['act_title'] = COutputText( $row['act_title'] );
-        $row['act_availability'] = COutputText( $row['act_availability'] );
-        $row['act_type'] = COutputText( $row['act_type'] );
+        $row['act_typ_id'] = COutputText( $row['act_typ_id'] );
         $row['act_participants'] = COutputText( $row['act_participants'] );
         $row['act_activity'] = COutputText( $row['act_activity'] );
         $row['act_accessibility'] = COutputText( $row['act_accessibility'] );
         $row['act_duration'] = COutputText( $row['act_duration'] );
         $row['act_kidfriendly'] = COutputText( $row['act_kidfriendly'] );
         $row['act_link'] = COutputText( $row['act_link'] );
-        $row['act_price'] = COutputText( $row['act_price'] );
 
         $results[] = $row;
     }
@@ -47,16 +45,16 @@ function ApiCreateActivity()
     $contents = json_decode( file_get_contents("php://input") );
 
     //doorgestuurde gegevens aannemen
-    $act_title = CInputText($contents->act_title);
-    $act_type = $contents->vpl_datum;
-    $act_activity = CInputText($contents->vpl_tea_id);
-    $act_duration = $contents->vpl_vvm_id;
-    $act_participants = $contents->vpl_omschr;
+    $act_title = CInputText($contents->title);
+    $act_typ_id = $contents->type;
+    $act_activity = CInputText($contents->activity);
+    $act_duration = $contents->duration;
+    $act_participants = $contents->participants;
 
     //activiteit cre�ren
     $ins = " INSERT INTO activities SET " .
                 " act_title='$act_title' ," .
-                " act_type='$act_type' ," .
+                " act_typ_id='$act_typ_id' ," .
                 " act_activity='$act_activity' ," .
                 " act_duration='$act_duration' ," .
                 " act_participants='$act_participants'";
@@ -86,15 +84,13 @@ function ApiGetUserActivities($id)
     {
         $row['act_id'] = COutputText( $row['act_id'] );
         $row['act_title'] = COutputText( $row['act_title'] );
-        $row['act_availlability'] = COutputText( $row['act_availlability'] );
-        $row['act_type'] = COutputText( $row['act_type'] );
+        $row['act_typ_id'] = COutputText( $row['act_typ_id'] );
         $row['act_participants'] = COutputText( $row['act_participants'] );
         $row['act_activity'] = COutputText( $row['act_activity'] );
         $row['act_accessibility'] = COutputText( $row['act_accessibility'] );
         $row['act_duration'] = COutputText( $row['act_duration'] );
         $row['act_kidfriendly'] = COutputText( $row['act_kidfriendly'] );
         $row['act_link'] = COutputText( $row['act_link'] );
-        $row['act_price'] = COutputText( $row['act_price'] );
 
         $results[] = $row;
     }
@@ -110,11 +106,11 @@ function ApiCreateUserActivity( $id )
     $contents = json_decode( file_get_contents("php://input") );
 
     //doorgestuurde gegevens aannemen
-    $act_title = CInputText($contents->act_title);
-    $act_type = $contents->vpl_datum;
-    $act_activity = CInputText($contents->vpl_tea_id);
-    $act_duration = $contents->vpl_vvm_id;
-    $act_participants = $contents->vpl_omschr;
+    $act_title = CInputText($contents->title);
+    $act_typ_id = $contents->type;
+    $act_activity = CInputText($contents->activity);
+    $act_duration = $contents->duration;
+    $act_participants = $contents->participants;
 
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
@@ -123,7 +119,7 @@ function ApiCreateUserActivity( $id )
     //activiteit cre�ren
     $ins = " INSERT INTO activities SET " .
         " act_title='$act_title' ," .
-        " act_type='$act_type' ," .
+        " act_typ_id='$act_typ_id' ," .
         " act_activity='$act_activity' ," .
         " act_duration='$act_duration' ," .
         " act_participants='$act_participants'";
@@ -150,12 +146,12 @@ function ApiUpdateUserActivity( $id )
     $contents = json_decode( file_get_contents("php://input") );
 
     //doorgestuurde gegevens aannemen
-    $act_id = $contents->act_id;
-    $act_title = CInputText($contents->act_title);
-    $act_type = $contents->act_type;
-    $act_activity = CInputText($contents->act_activity);
-    $act_duration = $contents->act_duration;
-    $act_participants = $contents->act_participants;
+    $act_id = $contents->id;
+    $act_title = CInputText($contents->title);
+    $act_typ_id = $contents->type;
+    $act_activity = CInputText($contents->activity);
+    $act_duration = $contents->duration;
+    $act_participants = $contents->participants;
 
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
@@ -164,7 +160,7 @@ function ApiUpdateUserActivity( $id )
     //activiteit cre�ren
     $upd = " UPDATE activities a SET " .
         " act_title='$act_title' ," .
-        " act_type='$act_type' ," .
+        " act_typ_id='$act_typ_id' ," .
         " act_activity='$act_activity' ," .
         " act_duration='$act_duration' ," .
         " act_participants='$act_participants'" .
@@ -173,7 +169,7 @@ function ApiUpdateUserActivity( $id )
 
     $cmd = new SQLCommand($upd, $conn, true);
 
-    ReturnOKMessage("Activiteit $act_id aangemaakt voor user $id");
+    ReturnOKMessage("Activiteit $act_id aangepast voor user $id");
 }
 
 //---------------------------------------------------------
@@ -186,10 +182,15 @@ function ApiDeleteUserActivity( $id )
     $contents = json_decode( file_get_contents("php://input") );
 
     //doorgestuurde gegevens aannemen
-    $act_id = $contents->act_id;
+    $act_id = $contents->id;
 
     //delete statement maken
+    /*
     $del = " delete from activities a INNER JOIN usr_act ua ON a.act_id=ua.act_id WHERE ua.usr_id='$id' AND ua.act_id=$act_id";
+    $cmd = new SQLCommand($del, $conn, true);
+    */
+
+    $del = " delete from usr_act ua WHERE ua.usr_id='$id' AND ua.act_id=$act_id";
     $cmd = new SQLCommand($del, $conn, true);
 
     ReturnOKMessage("Data of activity $act_id was deleted");
