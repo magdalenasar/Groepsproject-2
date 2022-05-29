@@ -45,7 +45,6 @@ function ApiCreateFavorite($id)
     //doorgestuurde data ophalen
     $contents = json_decode( file_get_contents("php://input") );
     $act_id = $contents->act_id;
-    $favorite = $contents->favorite;
 
     //favorite ophalen
     $sql = "select usr_act_id from usr_act WHERE usr_id=$id AND act_id=$act_id";
@@ -57,7 +56,7 @@ function ApiCreateFavorite($id)
     $ins = " INSERT INTO usr_act SET" .
         "act_id='$act_id', " .
         "usr_id='$id', " .
-        "usr_act_favorite='$favorite'";
+        "usr_act_favorite=true";
 
     $cmd = new SQLCommand($ins, $conn, true);
 
