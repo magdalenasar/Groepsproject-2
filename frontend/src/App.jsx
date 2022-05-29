@@ -1,12 +1,12 @@
 import "./styles/App.scss";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import Footer from "./components/body_components/Footer";
-import Home from "./components/body_components/Home";
-import About from "./components/body_components/About";
-import Login from "./components/body_components/Login";
-import Error404 from "./components/body_components/Error404";
-import Header from "./components/body_components/Header";
+import Footer from "./components/Footer";
+import Home from "./components/Home";
+import About from "./components/About";
+import Login from "./components/Login";
+import Error404 from "./components/Error404";
+import Header from "./components/Header";
 
 const App = () => {
   return (
