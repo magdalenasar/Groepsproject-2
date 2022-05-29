@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from './base_components/Title'
+import Title from '../base_components/Title'
 
 
 

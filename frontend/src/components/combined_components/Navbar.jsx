@@ -8,7 +8,7 @@ const Navbar = props => {
     <>
       <div className={className}>
         <nav className="left">
-          <Img className="img" src="/src/image/Logo.jpg" alt="Logo" />
+          <Img className="img" src="/src/image/Logo.png" alt="Logo" />
 
           <Button className="home_btn">
             <Link className="link" to="/">
