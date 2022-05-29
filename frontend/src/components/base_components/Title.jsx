@@ -1,8 +1,8 @@
 const Title = props => {
-  const { children } = props;
+  const { children, className } = props;
   return (
     <>
-      <h3 className="strikethrough-title">{children}</h3>
+      <h3 className={className}>{children}</h3>
     </>
   );
 };
