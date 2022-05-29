@@ -1,29 +1,29 @@
 import "./styles/App.scss";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
-
-
-import Footer from "./components/Footer";
-import Main from "./components/Main";
-import Header from "./components/Header";
+import Footer from "./components/body_components/Footer";
+import Home from "./components/body_components/Home";
+import About from "./components/body_components/About";
+import Login from "./components/body_components/Login";
+import Error404 from "./components/body_components/Error404";
+import Header from "./components/body_components/Header";
 
 const App = () => {
   return (
     <>
-      <BrowserRouter>
+      <Router>
         <Header className="header" />
         <Routes>
-          {/* {<Route path="/" element={<Home />} />}
-          { <Route path="contact" element={<ContactHero />} />
-          <Route path="login&register" element={<Login />} /> }
-          {/* <Route path="activities" element={<Activities />} />
-          <Route path="activities/:id" element={<ActivityDetails />} /> }
-          <Route path="*" element={<h1>404...Page not found</h1>} /> */}
+          <Route path="/" element={<Home className="home" />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/login_register"
+            element={<Login class="form-popup" />}
+          />
+          <Route path="*" element={<Error404 />} />
         </Routes>
-      </BrowserRouter>
-    
-      <Main className="main" />
-      <Footer className="footer" />
+        <Footer className="footer" />
+      </Router>
     </>
   );
 };
