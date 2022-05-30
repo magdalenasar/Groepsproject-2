@@ -21,12 +21,19 @@ const Navbar = props => {
             </Link>
           </Button>
         </nav>
+        <nav className="right">
+          <Button className="login_btn">
+            <Link className="link" to="/login">
+              Login |
+            </Link>
+          </Button>
 
-        <Button className="login_register" onclick="openForm()">
-          <Link className="link" to="/login_register">
-            Login | Register
-          </Link>
-        </Button>
+          <Button className="register_btn">
+            <Link className="link" to="/register">
+              Register
+            </Link>
+          </Button>
+        </nav>
       </div>
     </>
   );
