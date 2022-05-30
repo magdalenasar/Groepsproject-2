@@ -7,15 +7,12 @@ $parts = explode("/", $request);
 //var_dump($parts);
 $route = $parts[4];
 if(count($parts) > 4) $params = $parts[5];
-if(count($parts) > 5) $subroute = $parts[6];
 
-$subroute = "";
-
-//als er een querystring opgenomen is in de subroute, deze eraf knippen
-if ( $subroute > "" AND strpos($subroute, "?") !== false )
+//als er een querystring opgenomen is in de route, deze eraf knippen
+if ( strpos($route, "?") !== false )
 {
-    $subroute_parts = explode("?", $subroute);
-    $subroute = $subroute_parts[0];
+    $route_parts = explode("?", $route);
+    $route = $route_parts[0];
 }
 
 switch( $route )
