@@ -41,12 +41,6 @@ function ApiCreateUser()
     $email = $contents->email;
     $password = $contents->password;
 
-    //naam van de user ophalen
-    $sql = "select * from user WHERE usr_email='$email'";
-    $dsUsers = new DataSet($sql, $conn, true);
-    //var_dump($dsUsers);
-    if ( count($dsUsers) > 0) ErrorMessageAndExit( "User $email already exists" );
-
     //insert statement maken
     $ins = " INSERT INTO user SET" .
             "usr_name='$name', " .
