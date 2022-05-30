@@ -23,7 +23,6 @@ function ApiGetFavorites( $id = null)
     }
 
     $dsFavorites = new DataSet($sql, $conn, true);
-    var_dump($dsFavorites);
 
     foreach ( $dsFavorites->rows as $row )
     {
