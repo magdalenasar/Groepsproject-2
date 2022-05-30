@@ -8,7 +8,7 @@ const Gallery = props => {
     <div className={className}>
       <div className="gallery_heading">
         <Title className="gallery_title">{children}</Title>
-        <Search className="gallery_search" value="" />
+        <Search className="gallery_search" />
       </div>
       <Grid className="gallery_grid" />
     </div>
