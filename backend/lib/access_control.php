@@ -11,6 +11,7 @@ header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers
 //Set response content type and character set
 header("Content-Type: application/json; charset=UTF-8");
 
+/*
 //Basic Authentication controle
 if ( $_SERVER['PHP_AUTH_USER'] !== "root" OR $_SERVER['PHP_AUTH_PW'] !== "" )
 {
@@ -19,3 +20,4 @@ if ( $_SERVER['PHP_AUTH_USER'] !== "root" OR $_SERVER['PHP_AUTH_PW'] !== "" )
     header('HTTP/1.0 401 Unauthorized');
     exit;
 }
+*/
