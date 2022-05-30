@@ -36,7 +36,13 @@ const Login = (props) => {
             name="password"
             required
             onChange={(e) => {
-              setPassword(e.target.value);
+              const password = bcrypt.compare(
+                e.target.value,
+                hash,
+                function (err, result) {
+                  if (result) setPassword(password);
+                }
+              );
             }}
           />
 
@@ -55,7 +61,7 @@ const Login = (props) => {
                     if (!emailState == email && !passwordState == pass) {
                       error && (
                         <p>
-                          You do not have an account yet. Please{" "}
+                          You do not have an account yet. Please
                           <a href="/register">register</a>
                         </p>
                       );
