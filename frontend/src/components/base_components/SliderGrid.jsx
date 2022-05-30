@@ -1,21 +1,21 @@
 import { useAxios } from "../../data/hooks";
 
-const sliderGrid = (props) => {
-  const [categories, loading, error] = useAxios(
-    "https://wdev2.be/fs_tijl/groepswerk2/api/categories"
+const SliderGrid = (props) => {
+  const [favorites, loading, error] = useAxios(
+    "https://wdev2.be/fs_tijl/groepswerk2/api/favorites"
   );
 
   const { className, className2 } = props;
   return (
     <>
       {categories.length > 0 &&
-        categories.map(({ id, name, image }) => (
+        favorites.map(({ usr_act_id, title, image }) => (
           <Link to="/categoryview">
-            <div className={className} key={id}>
+            <div className={className} key={usr_act_id}>
               <div className={className2}>
                 <img href={image} alt={name} />
               </div>
-              <h3>{name}</h3>
+              <h3>{title}</h3>
             </div>
           </Link>
         ))}
@@ -23,4 +23,4 @@ const sliderGrid = (props) => {
   );
 };
 
-export default Grid;
+export default SliderGrid;
