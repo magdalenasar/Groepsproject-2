@@ -1,33 +1,90 @@
-import React from 'react'
+import React from "react";
 
 const Register = () => {
   return (
     <>
-        <form action="">
-            <div className="container">
-                <h1>Register</h1>
-                <p>Please fill in this form to create an account.</p>
-                <hr/>
+      <form
+        method="POST"
+        action="https://wdev2.be/fs_tijl/groepswerk2/api/user"
+      >
+        <div className="container">
+          <h1>Register</h1>
+          <p>Please fill in this form to create an account.</p>
+          <hr />
 
-                <label for="email"><b>Email</b></label>
-                <input type="text" placeholder="Enter Email" name="email" id="email" required/>
+          <label for="name">
+            <b>First name</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter first name"
+            name="name"
+            id="name"
+            required
+          />
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" id="psw" required/>
+          <label for="surname">
+            <b>Last name</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter last name"
+            name="surname"
+            id="surname"
+            required
+          />
 
-                <label for="psw-repeat"><b>Repeat Password</b></label>
-                <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required/>
-                <hr/>
+          <label for="email">
+            <b>Email</b>
+          </label>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            id="email"
+            required
+          />
 
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-                <button type="submit" class="registerbtn">Register</button>
-            </div>
+          <label for="password">
+            <b>Password</b>
+          </label>
+          <input
+            type="password"
+            placeholder="Enter Password"
+            name="password"
+            id="password"
+            required
+          />
 
-            <div class="container signin">
-                <p>Already have an account? <a href="#">Sign in</a>.</p>
-            </div>
-        </form>
-   </>
-)}
+          <label for="psw-repeat">
+            <b>Repeat Password</b>
+          </label>
+          <input
+            type="password"
+            placeholder="Repeat Password"
+            name="psw-repeat"
+            id="psw-repeat"
+            required
+          />
+          <hr />
 
-export default Register
+          <p>
+            By creating an account you agree to our{" "}
+            <a href="#">Terms & Privacy</a>.
+          </p>
+          <button type="submit" class="registerbtn">
+            Register
+          </button>
+        </div>
+
+        <div class="container signin">
+          <p>
+            Already have an account? <a href="#">Sign in</a>.
+          </p>
+        </div>
+      </form>
+    </>
+  );
+};
+
+export default Register;
