@@ -12,8 +12,10 @@ function ApiGetFavorites( $id = null)
     $fields[] = "act_title as title";
     $fields[] = "usr_name as name";
     $fields[] = "usr_surname as surname";
+    $fields[] = "typ_img as image";
 
-    $sql = "select  DISTINCT " . implode(",", $fields ) . " from activities a" .
+    $sql = "select  DISTINCT " . implode(",", $fields ) . " from types t" .
+                " INNER JOIN activities a ON a.act_typ_id=t.typ_id " .
                 " INNER JOIN usr_act ua ON ua.act_id=a.act_id " .
                 " INNER JOIN user u ON u.usr_id=ua.usr_id" .
                 " where ua.usr_act_favorite='1'";
@@ -29,6 +31,7 @@ function ApiGetFavorites( $id = null)
         $row['name'] = COutputText( $row['name'] );
         $row['surname'] = COutputText( $row['surname'] );
         $row['title'] = COutputText( $row['title'] );
+        $row['image'] = COutputText( $row['image'] );
 
         $results[] = $row;
     }
