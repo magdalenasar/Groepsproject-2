@@ -4,10 +4,10 @@ $method = $_SERVER["REQUEST_METHOD"];
 $route_found = false;
 
 $parts = explode("/", $request);
-//var_dump($parts);
-$route = $parts[3];
-if(count($parts) > 3) $params = $parts[4];
-if(count($parts) > 4) $subroute = $parts[5];
+var_dump($parts);
+$route = $parts[4];
+if(count($parts) > 4) $params = $parts[5];
+if(count($parts) > 5) $subroute = $parts[6];
 
 $subroute = "";
 

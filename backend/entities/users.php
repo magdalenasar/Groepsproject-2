@@ -39,8 +39,7 @@ function ApiCreateUser()
     $name = $contents->name;
     $surname = $contents->surname;
     $email = $contents->email;
-    $password = $contents->password;
-    $password = password_hash($password, PASSWORD_DEFAULT);
+    $password = password_hash($contents->password, PASSWORD_DEFAULT);
 
     //insert statement maken
     $ins = " INSERT INTO user SET" .
@@ -64,7 +63,7 @@ function ApiUpdateUser( $id )
     $name = $contents->name;
     $surname = $contents->surname;
     $email = $contents->email;
-    $password = $contents->password;
+    $password = password_hash($contents->password, PASSWORD_DEFAULT);
 
     //naam van de user ophalen
     $sql = "select usr_id, usr_name, usr_surname from user WHERE usr_id=$id";
