@@ -12,11 +12,10 @@ function ApiGetFavorites( $id = null)
     $fields[] = "act_title as title";
     $fields[] = "usr_name as name";
     $fields[] = "usr_surname as surname";
-    $fields[] = "usr_act_favorite";
 
-    $sql = "select  DISTINCT " . implode(",", $fields ) . " from usr_act ua" .
-                " INNER JOIN activities a ON ua.act_id=a.act_id " .
-                " INNER JOIN user u ON ua.usr_id=u.usr_id" .
+    $sql = "select  DISTINCT " . implode(",", $fields ) . " from activities a" .
+                " INNER JOIN usr_act ua ON ua.act_id=a.act_id " .
+                " INNER JOIN user u ON u.usr_id=ua.usr_id" .
                 " where ua.usr_act_favorite='1'";
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
@@ -29,7 +28,6 @@ function ApiGetFavorites( $id = null)
     {
         $row['name'] = COutputText( $row['name'] );
         $row['surname'] = COutputText( $row['surname'] );
-        $row['title'] = COutputText( $row['title'] );
         $row['title'] = COutputText( $row['title'] );
 
         $results[] = $row;
@@ -45,12 +43,6 @@ function ApiCreateFavorite($id)
     //doorgestuurde data ophalen
     $contents = json_decode( file_get_contents("php://input") );
     $act_id = $contents->act_id;
-
-    //favorite ophalen
-    $sql = "select usr_act_id from usr_act WHERE usr_id=$id AND act_id=$act_id";
-    $dsFavorite = new DataSet($sql, $conn, true);
-
-    if ( count($dsFavorite) > 0 ) ErrorMessageAndExit( "Favorite for activity $act_id already exists" );
 
     //insert statement maken
     $ins = " INSERT INTO usr_act SET" .
