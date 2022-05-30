@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1bb23918-ecfe-45bc-ba98-49aa44c21942" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/entities/favorites.php" beforeDir="false" afterPath="$PROJECT_DIR$/backend/entities/favorites.php" afterDir="false" />
-    </list>
+    <list default="true" id="1bb23918-ecfe-45bc-ba98-49aa44c21942" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,7 +46,7 @@
       <updated>1653677766672</updated>
       <workItem from="1653677768642" duration="2450000" />
       <workItem from="1653827784975" duration="13835000" />
-      <workItem from="1653901637542" duration="7395000" />
+      <workItem from="1653901637542" duration="8734000" />
     </task>
     <servers />
   </component>

@@ -40,6 +40,7 @@ function ApiCreateUser()
     $surname = $contents->surname;
     $email = $contents->email;
     $password = $contents->password;
+    $password = password_hash($password, PASSWORD_DEFAULT);
 
     //insert statement maken
     $ins = " INSERT INTO user SET" .
