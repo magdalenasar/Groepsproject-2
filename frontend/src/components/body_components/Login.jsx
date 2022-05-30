@@ -4,11 +4,11 @@ const Login = props => {
   const { className } = props;
   return (
     <>
-      <div class={className} id="myForm">
-        <form action="" class="form-container">
+      <div className={className} id="myForm">
+        <form action="" className="form-container">
           <h1>Login</h1>
           <div className="login_email">
-            <label for="email">
+            <label htmlFor="email">
               <b>Email</b>
             </label>
             <input
@@ -19,7 +19,7 @@ const Login = props => {
             />
           </div>
           <div className="login_psw">
-            <label for="psw">
+            <label htmlFor="psw">
               <b>Password</b>
             </label>
             <input
@@ -30,10 +30,10 @@ const Login = props => {
             />
           </div>
           <div className="login_btn">
-            <Button type="submit" class="btn">
+            <Button type="submit" className="btn">
               Login
             </Button>
-            <Button type="button" class="btn cancel" onclick="closeForm()">
+            <Button type="button" className="btn cancel" onClick="closeForm()">
               Close
             </Button>
           </div>
