@@ -5,15 +5,19 @@ const Grid = (props) => {
     "https://wdev2.be/fs_tijl/groepswerk2/api/categories"
   );
 
-  const { className } = props;
+  const { className, className2 } = props;
   return (
     <>
       {categories.length > 0 &&
         categories.map(({ id, name, image }) => (
-          <div className={className} key={id}>
-            <img href={image}></img>
-            <h3>{name}</h3>
-          </div>
+          <Link to="/categoryview">
+            <div className={className} key={id}>
+              <div className={className2}>
+                <img href={image} alt={name} />
+              </div>
+              <h3>{name}</h3>
+            </div>
+          </Link>
         ))}
     </>
   );
