@@ -1,6 +1,6 @@
-import Navbar from "./Navbar";
-import Brand from "./Brand";
-import Button from "./base_components/Button";
+import Navbar from "../combined_components/Navbar";
+import Brand from "../combined_components/Brand";
+import Button from "../base_components/Button";
 
 const Header = props => {
   const { className } = props;
@@ -9,9 +9,9 @@ const Header = props => {
       <Navbar className="navbar" />
       <Brand
         className="brand"
-        h2child="Don't be bored"
-        h1child1="GET"
-        h1child2="INSPIRED"
+        h1child1="Get"
+        h1child2="inspired"
+        h2child="Don't be bored "
       />
       <Button className="random">Get a Random activity idea → </Button>
     </header>
