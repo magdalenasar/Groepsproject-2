@@ -1,7 +1,7 @@
 import React from "react";
 import { useAxios } from "../../data/hooks";
 import { useState } from "react";
-import { Register } from "./Register";
+import { Register } from "./Register_Tijl";
 
 const Login = (props) => {
   const { className } = props;
@@ -17,9 +17,15 @@ const Login = (props) => {
           <label htmlFor="email">
             <b>Email</b>
           </label>
-          <input type="text" placeholder="Enter Email" name="email" required onChange={(e) => {
-            setEmail(e.target.value);
-          }}/>
+          <input
+            type="text"
+            placeholder="Enter Email"
+            name="email"
+            required
+            onChange={(e) => {
+              setEmail(e.target.value);
+            }}
+          />
 
           <label htmlFor="password">
             <b>Password</b>
@@ -34,16 +40,30 @@ const Login = (props) => {
             }}
           />
 
-          <button type="submit" className="btn" onClick={(e) => {
-            e.preventDefault();
-            const [users, loading, error] = useAxios("https://wdev2.be/fs_tijl/groepswerk2/api/users");
+          <button
+            type="submit"
+            className="btn"
+            onClick={(e) => {
+              e.preventDefault();
+              const [users, loading, error] = useAxios(
+                "https://wdev2.be/fs_tijl/groepswerk2/api/users"
+              );
 
-            {users.length > 0 && (
-                users.map(({ email, pass }) => (
-                  if( !emailState == email && !passwordState == pass) {error && <p>You do not have an account yet. Please <a href="/register">register</a></p>};
-                ))
-            )}
-          }}>
+              {
+                users.length > 0 &&
+                  users.map(({ email, pass }) => {
+                    if (!emailState == email && !passwordState == pass) {
+                      error && (
+                        <p>
+                          You do not have an account yet. Please{" "}
+                          <a href="/register">register</a>
+                        </p>
+                      );
+                    }
+                  });
+              }
+            }}
+          >
             Login
           </button>
           <button type="button" className="btn cancel" onClick={closeForm()}>
