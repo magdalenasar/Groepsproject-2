@@ -3,7 +3,7 @@ import Activity from "./Activity";
 import Button from '../base_components/Button';
 
 import { useState } from "react";
-import { useAxios } from "../../data/hooks";
+import { useAxios } from "../../hooks/hooks";
 import Title from '../base_components/Title';
 
 
