@@ -10,7 +10,9 @@ const Gallery = props => {
         <Title className="gallery_title">{children}</Title>
         <Search className="gallery_search" />
       </div>
-      <Grid className="gallery_grid" />
+      <div className="gallery_grid">
+        <Grid className="gallery_item" className2="imgholder" />
+      </div>
     </div>
   );
 };
