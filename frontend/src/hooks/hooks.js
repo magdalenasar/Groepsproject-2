@@ -11,10 +11,10 @@ export function useAxios(path) {
       try {
         setLoading(true);
         const { data } = await axios(path);
-        console.log("Dit komt uit hooks.js: ", data.activities);
         setLoading(false);
         setError(false);
         setData(data);
+        console.log("Dit komt uit hooks.js: ", data.activities);
       } catch (error) {
         setLoading(false);
         setError(true);
