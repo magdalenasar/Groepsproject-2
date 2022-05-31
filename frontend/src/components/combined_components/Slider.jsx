@@ -1,5 +1,5 @@
 import Title from "../base_components/Title";
-import Grid from "../base_components/Grid";
+import SliderGrid from "../base_components/SliderGrid";
 
 const Slider = (props) => {
   const { className, children } = props;
