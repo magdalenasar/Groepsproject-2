@@ -55,6 +55,9 @@ switch( $route )
 
     case "categories":          if ( $method == "GET" ) {  $route_found=true; ApiGetCategories(); } //lijst van alle categories
                                         break;
+    
+    case "mail":                if ( $method == "POST" ) { $route_found=true; ApiCreateMail(); } //verstuur mail 
+                                        break;
 
     default:                            break;
 }
