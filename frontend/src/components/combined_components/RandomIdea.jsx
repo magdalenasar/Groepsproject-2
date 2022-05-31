@@ -7,7 +7,7 @@ import { useAxios } from "../../data/hooks";
 import Title from '../base_components/Title';
 
 
-const Random = (props) => {
+const RandomIdea = (props) => {
   const {className} = props;
   const [clicked, setClicked] = useState(false);
   const [randomActivityID, setRandomActivityID] = useState(null);
@@ -39,4 +39,4 @@ const Random = (props) => {
   )
 }
 
-export default Random;
+export default RandomIdea;
