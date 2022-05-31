@@ -1,7 +1,7 @@
 import Title from "../base_components/Title";
 import Chips from "../combined_components/Chips";
 
-const About = props => {
+const About = (props) => {
   const { className } = props;
 
   return (
@@ -9,7 +9,10 @@ const About = props => {
       <Title>Contact us</Title>
       <div className="contact">
         <div className="contact-form">
-          <form>
+          <form
+            method="POST"
+            action="https://wdev2.be/fs_tijl/groepswerk2/api/mail"
+          >
             <label for="name">
               <b>Name</b>
             </label>
@@ -17,14 +20,18 @@ const About = props => {
               className="name feedback-input half"
               type="text"
               placeholder="Your name here"
+              name="name"
+              id="name"
             />
             <label for="email">
               <b>Email</b>
             </label>
             <input
               className="email feedback-input half"
-              type="text"
+              type="email"
               placeholder="Enter your mail"
+              name="email"
+              id="email"
             />
             <label for="message">
               <b>Message</b>
@@ -32,6 +39,8 @@ const About = props => {
             <textarea
               className="text feedback-input "
               placeholder="Write your message here..."
+              name="message"
+              id="message"
             ></textarea>
             <input type="submit" value="Send message" />
           </form>
