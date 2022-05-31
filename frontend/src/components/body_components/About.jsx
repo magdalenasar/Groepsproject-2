@@ -10,7 +10,7 @@ const About = props => {
       <div className="contact">
         <div className="contact-form">
           <form>
-            <label for="name">
+            <label htmlFor="name">
               <b>Name</b>
             </label>
             <input
@@ -18,7 +18,7 @@ const About = props => {
               type="text"
               placeholder="Your name here"
             />
-            <label for="email">
+            <label htmlFor="email">
               <b>Email</b>
             </label>
             <input
@@ -26,7 +26,7 @@ const About = props => {
               type="text"
               placeholder="Enter your mail"
             />
-            <label for="message">
+            <label htmlFor="message">
               <b>Message</b>
             </label>
             <textarea
