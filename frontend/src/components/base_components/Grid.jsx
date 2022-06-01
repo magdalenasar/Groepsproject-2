@@ -1,7 +1,7 @@
 import { useAxios } from "../../hooks/hooks";
 import { Link } from "react-router-dom";
 
-const Grid = props => {
+const Grid = (props) => {
   const [categories, loading, error] = useAxios(
     "https://wdev2.be/fs_tijl/groepswerk2/api/categories"
   );

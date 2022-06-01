@@ -5,61 +5,41 @@ import { useState } from "react";
 const Activity = ({ id }) => {
   const { data, isLoading, isError } = useGetActivityByIdQuery(id, {
     refetchOnFocus: true,
-    refetchOnReconnect:true,
+    refetchOnReconnect: true,
   });
 
 
   return (
-    <div>    
-        {isLoading && <p>Loading...</p>}
-        {isError && <p>An error occured..</p>} 
-        {data && <pre>{JSON.stringify(data, undefined, 2)}</pre>} 
-
-        {/* {
-          data && (
-            <ul>
-              {data.activities?.map((activity) => (
-                <div key={act_id}>
-                  <li><h3 className='title'>{activity.activity}</h3></li>
-                  <li>{availability}</li>
-                  <li>{partipicipants}</li>
-                  <li>{accessibility}</li>
-                  <li>{duration}</li>
-                  <li>{kidFriendly}</li>
-                  <li>{link}</li>
-                </div>
-              ))}
-              </ul>
-              )} */}
-        <a href="/" className="randomize">Close</a>
-    </div>
-    );
-  };
+    <>
+      {isLoading && <p>Loading...</p>}
+      {isError && <p>An error occured..</p>}
+      {data &&
+        data.map(
+          ({
+            act_id,
+            act_title,
+            act_activity,
+            typ_name,
+            act_participants,
+            act_accessibility,
+            act_duration,
+            act_kidfriendly,
+            act_link,
+          }) => (
+            <div className="activity_detail" key={act_id}>
+              <h4>Title: {act_title}</h4>
+              <h4>Summary: {act_activity}</h4>
+              <h4>Category: {typ_name}</h4>
+              <h4>Participants: {act_participants}</h4>
+              <h4>Accessibility: {act_accessibility}</h4>
+              <h4>Duration: {act_duration}</h4>
+              <h4>Kidfriendly: {act_kidfriendly}</h4>
+              <h4>More info: {act_link}</h4>
+            </div>
+          )
+        )}
+    </>
+  );
+};
 
 export default Activity;
-
-
-
-
-{/* 
-      {data.length > 0 && <ul> (
-        
-        data.map(({ act_id, activity, availability, type, partipicipants, accessibility, duration, kidFriendly, link }) => (
-          <div className="flex-grid">
-            <div className="col">
-              <h2 className="act-title">{activity}</h2>
-              <figcaption> Category: {type}</figcaption>
-              <section className='card-body'>
-                <>Availability: {availability}</>
-                Partipicipants: {partipicipants}
-                Accessibility:  {accessibility}
-                Duration: {duration}
-                Kid friendly factor:{kidFriendly}
-                More: {link}
-              </section>
-            </div>
-          </div>
-          )
-          </ul>
-        )} 
-      )} */}

@@ -1,13 +1,15 @@
 import Title from "../base_components/Title";
 import Chips from "../combined_components/Chips";
 
-const About = (props) => {
+const About = props => {
   const { className } = props;
 
   return (
-    <>
-      <Title>Contact us</Title>
+    <div className={className}>
       <div className="contact">
+        <div>
+          <Title>Contact us</Title>
+        </div>
         <div className="contact-form">
           <form
             method="POST"
@@ -49,7 +51,7 @@ const About = (props) => {
           <Chips />
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
