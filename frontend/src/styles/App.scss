@@ -21,7 +21,11 @@ body{
   margin: 0 auto;
   font-family: $font-body;
   background-color: $blue;
-
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
   button{
     border: none;
     padding: 15px 20px;
@@ -62,12 +66,8 @@ body{
         font-size: 20px;
         font-weight: 800;
         margin-bottom: 20px;
-        .link{
-          text-decoration: none;
-          color: black;
-          &:hover{
-            color: rgb(0, 0, 0, 0.5);
-          } 
+        .link :hover{
+          color: rgb(0, 0, 0, 0.5);
         }       
       }
       .left{ 
@@ -78,12 +78,8 @@ body{
           margin-left: auto;
           margin-right: auto;
           width: 40%;
+          padding-right: 50px;
           }
-        
-        .home_btn{
-          margin-bottom: 20px;
-          padding-left: 50px;
-        }
       }
       .right{
         display: inherit;
@@ -99,7 +95,7 @@ body{
       display: flex;
       align-items: flex-end;
       font-family: $font-brand;;
-      padding-bottom: 40px;
+      //padding-bottom:20px;
 
       .brand_h2_h1{    
         .brand_h1_1{
@@ -119,7 +115,6 @@ body{
         text-transform: uppercase;
       }
     }
-
     .random{
       color: $accent-color;
       background-color: $light-accent;
@@ -142,7 +137,7 @@ body{
   }
   .home{
     font-family: $font-body;
-     min-height: calc(100vh - (70px + 402px));     
+     min-height: calc(100vh - (70px + 209px));     
     .slider{
       border-bottom: 1px solid rgb(213, 213, 213);
       .slider_title{
@@ -152,27 +147,26 @@ body{
       .slider_row{
         display: grid;
         grid-template-columns: repeat(5, 1fr);
-        column-gap: 10px;
-        grid-auto-rows: 1fr;
+        gap: 40px;
         padding: 10px;
-        margin: 20px 0 20px 0;
+        margin: 10px 0 10px 0;
         
         .slider_item{
           .imgholder{
             position: relative;
             a {
-                img{
-                  border: 1px solid rgb(213, 213, 213);
-                  border-radius: 10px;
-                  object-fit: cover;
-                  width: 100%;
-                  height: 15vh;      
+              img{
+                border: 1px solid rgb(213, 213, 213);
+                border-radius: 10px;
+                object-fit: cover;
+                width: 100%;
+                height: 10vh;      
               }
               h3{
                 position: absolute;
                 left: 0;
                 bottom: 0;
-                margin-bottom: 4px;
+                margin-bottom:5px;
                 border-radius: 0 0 0 10px ;
               }
             }
@@ -182,7 +176,6 @@ body{
     }
     .gallery{
       padding-top: 20px ;
-      
       .gallery_heading{
           display: flex;
           justify-content: center;
@@ -223,8 +216,6 @@ body{
         display: grid;
         grid-template-columns: repeat(6,1fr);
         grid-gap: 10px;
-        padding: 10px;
-        margin-bottom: 40px;
         .gallery_item{
           .imgholder{
             position: relative;
@@ -248,10 +239,120 @@ body{
     }
   }
   .about{
-    min-height: calc(100vh - (70px + 402px));
+    min-height: calc(100vh - (70px + 209px));
+    .contact {
+      width: 90%;
+      display: flex;
+      gap: 3%;
+      h3{
+        justify-self: flex-start;
+      }
+  
+      &-form {
+        font-family: $font-body;
+        width: 50%;
+        margin: 50px auto;
+        color: $textColor-body;
+  
+        .feedback-input {
+          color: $textColor-body;
+          font-weight: 500;
+          font-size: 18px;
+          border-radius: 5px;
+          line-height: 22px;
+          background-color: transparent;
+          border: 2px solid grey;
+          transition: all 0.3s;
+          padding: 13px;
+          margin-bottom: 15px;
+          width: 100%;
+          outline: 0;
+  
+          &:focus {
+            border: 2px solid $accent-color;
+          }
+        }
+  
+        textarea {
+          height: 150px;
+          line-height: 150%;
+          resize: vertical;
+        }
+  
+        [type="submit"] {
+          color: $accent-color;
+          font-family: $font-body;
+          width: 100%;
+          background: $light-accent;
+          border-radius: 5px;
+          border: 0;
+          cursor: pointer;
+          font-size: 24px;
+          padding-top: 10px;
+          padding-bottom: 10px;
+          transition: all 0.3s;
+          margin-top: -4px;
+          font-weight: 700;
+  
+          &:hover {
+            background: $accent-color;
+            color: $light-accent;
+          }
+  
+          @media screen and (max-width: 600px) {
+  
+            input[type=submit] {
+              width: 100%;
+              margin-top: 0;
+            }
+          }
+        }
+      }
+  
+      // form end
+      &-team {
+        max-width: 50%;
+        .chips {
+          display: flex;
+          flex-direction: column;
+          align-items: start;
+          justify-content: center;
+          width: auto;
+          overflow: hidden;
+          margin-top: 40%;
+  
+          .chip {
+            text-align: center;
+            padding: 0 25px;
+            height: auto;
+            font-size: 16px;
+            line-height: 50px;
+            border-radius: 25px;
+            background-color: $light-accent;
+            margin-bottom: 10%;
+            width: 100%;
+  
+            &:hover {
+              transition-duration: 0.4s;
+              color: $light-accent;
+              background-color: $accent-color;
+            }
+  
+            img {
+              float: left;
+              margin: 0 10px 0 -25px;
+              height: 50px;
+              width: 50px;
+              border-radius: 50%;
+            }
+          }
+        }
+  
+      }
+    }
   }
   .login{
-    min-height: calc(100vh - (70px + 402px)); 
+    min-height: calc(100vh - (70px + 209px)); 
     font-family: $font-body;
     padding: 20px 0;
     .form-container{
@@ -290,26 +391,31 @@ body{
     }
   }
   .register{
-    min-height: calc(100vh - (70px + 402px));
-  }
-  .error{ 
-    min-height: calc(100vh - (70px + 346.89px));
-    h1{
-      text-align: center;
-    }
-  }
-  .contact {
-    width: 90%;
+    min-height: calc(100vh - (70px + 209px));
     display: flex;
-    gap: 3%;
-
-    &-form {
-      font-family: $font-body;
-      width: 50%;
-      margin: 50px auto;
-      color: $textColor-body;
-
-      .feedback-input {
+    flex-direction: column;
+    padding: 0 40px 0 40px;
+    &-form{
+      hr{
+        border-top: 1px solid rgb(213, 213, 213);        
+      }
+    }
+    &-heading, &-footing, &-signin{
+      // padding: 20px;
+      text-align: center;
+      p{
+        padding: 5px;
+      }
+      button{
+        font-size: 20px;
+        font-weight: 800;
+        background-color: #EDF2F8;
+      }
+    }
+    &-name, &-surname, &-email, &-password, &-pswrepeat{
+      display: flex;
+      flex-direction: column;
+      input{
         color: $textColor-body;
         font-weight: 500;
         font-size: 18px;
@@ -318,93 +424,24 @@ body{
         background-color: transparent;
         border: 2px solid grey;
         transition: all 0.3s;
-        padding: 13px;
-        margin-bottom: 15px;
+        padding: 10px;
+        margin-bottom: 10px;
         width: 100%;
         outline: 0;
-
+        
         &:focus {
           border: 2px solid $accent-color;
         }
       }
-
-      textarea {
-        height: 150px;
-        line-height: 150%;
-        resize: vertical;
-      }
-
-      [type="submit"] {
-        color: $accent-color;
-        font-family: $font-body;
-        width: 100%;
-        background: $light-accent;
-        border-radius: 5px;
-        border: 0;
-        cursor: pointer;
-        font-size: 24px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        transition: all 0.3s;
-        margin-top: -4px;
-        font-weight: 700;
-
-        &:hover {
-          background: $accent-color;
-          color: $light-accent;
-        }
-
-        @media screen and (max-width: 600px) {
-
-          input[type=submit] {
-            width: 100%;
-            margin-top: 0;
-          }
-        }
-      }
-    }
-
-    // form end
-    &-team {
-      max-width: 50%;
-      .chips {
-        display: flex;
-        flex-direction: column;
-        align-items: start;
-        justify-content: center;
-        width: auto;
-        overflow: hidden;
-        margin-top: 40%;
-
-        .chip {
-          text-align: center;
-          padding: 0 25px;
-          height: auto;
-          font-size: 16px;
-          line-height: 50px;
-          border-radius: 25px;
-          background-color: $light-accent;
-          margin-bottom: 10%;
-          width: 100%;
-
-          &:hover {
-            transition-duration: 0.4s;
-            color: $light-accent;
-            background-color: $accent-color;
-          }
-
-          img {
-            float: left;
-            margin: 0 10px 0 -25px;
-            height: 50px;
-            width: 50px;
-            border-radius: 50%;
-          }
-        }
-      }
-
     }
   }
+  .error{ 
+    min-height: calc(100vh - (70px + 209px));
+    h1{
+      text-align: center;
+    }
+  }
+  
   .footer{
     display: flex;
     flex-direction: column;
@@ -415,17 +452,6 @@ body{
     font-weight: 800;
     padding: 16px 0 16px 0;
   }
-}
-
-
-
-
-  a{
-    text-decoration: none;
-    color: inherit;
-  }
-
-
   .random-activity{
     text-align: center;
     margin-bottom: auto;
@@ -442,7 +468,6 @@ body{
         border: 1px solid #fcdfd4;
         box-shadow: 5px 10px 18px #d3e1f2;
         cursor: pointer;
-    
         &:hover {
           border: none;
           transition-duration: 0.4s;
@@ -451,4 +476,10 @@ body{
           box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
         }
       }
-  }
+    }
+}
+
+
+
+
+  
