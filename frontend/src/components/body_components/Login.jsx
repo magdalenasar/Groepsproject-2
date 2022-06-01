@@ -75,8 +75,10 @@ const Login = props => {
             >
               Login
             </Button>
-            <Button type="button" className="btn cancel" onClick="">
-              Back
+            <Button type="button" className="btn back">
+              <Link className="link" to="/">
+                Back
+              </Link>
             </Button>
           </div>
         </form>
