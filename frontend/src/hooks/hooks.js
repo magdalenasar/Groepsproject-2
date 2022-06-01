@@ -14,7 +14,6 @@ export function useAxios(path) {
         setLoading(false);
         setError(false);
         setData(data);
-        console.log("Dit komt uit hooks.js: ", data.activities);
       } catch (error) {
         setLoading(false);
         setError(true);
