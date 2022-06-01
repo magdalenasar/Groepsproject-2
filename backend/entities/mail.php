@@ -16,7 +16,7 @@ function ApiCreateMail()
     $headers .= 'To: getINSPIRED <getinspired@gmail.com>' . "\r\n";
     //$headers .= 'Bcc: info@info.be' . "\r\n";
 
-    $to = $email;
+    $to = "getinspired@gmail.com";
     $subject = "You got mail from $name";
     $message = $message;
 

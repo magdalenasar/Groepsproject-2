@@ -8,9 +8,20 @@ function ApiGetActivities($id = null) {
     global $conn;
     $results = array();
 
+    $fields = array();
+    $fields[] = "act_id";
+    $fields[] = "act_title";
+    $fields[] = "typ_name";
+    $fields[] = "act_participants";
+    $fields[] = "act_activity";
+    $fields[] = "act_accessibility";
+    $fields[] = "act_duration";
+    $fields[] = "act_kidfriendly";
+    $fields[] = "act_link";
+
     //alle activiteiten
-    $sql = "select * " .
-        " from activities";
+    $sql = "select  DISTINCT " . implode(",", $fields ) . " from activities " . 
+    "INNER JOIN types ON act_typ_id=typ_id";
     if ($id) {
         if (! is_numeric($id) ) $results = array( "FOUT" => "Ongeldig id opgegeven" );
         $sql .= " where act_id=$id";
@@ -21,7 +32,7 @@ function ApiGetActivities($id = null) {
     {
         $row['act_id'] = COutputText( $row['act_id'] );
         $row['act_title'] = COutputText( $row['act_title'] );
-        $row['act_typ_id'] = COutputText( $row['act_typ_id'] );
+        $row['typ_name'] = COutputText( $row['typ_name'] );
         $row['act_participants'] = COutputText( $row['act_participants'] );
         $row['act_activity'] = COutputText( $row['act_activity'] );
         $row['act_accessibility'] = COutputText( $row['act_accessibility'] );

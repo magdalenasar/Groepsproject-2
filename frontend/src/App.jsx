@@ -11,7 +11,7 @@ import Userview from "./components/body_components/Userview";
 import Error404 from "./components/body_components/Error404";
 import Header from "./components/body_components/Header";
 
-const App = (props) => {
+const App = props => {
   const { className } = props;
   return (
     <div className={className}>
@@ -19,7 +19,7 @@ const App = (props) => {
         <Header className="header" />
         <Routes>
           <Route path="/" element={<Home className="home" />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<About className="about" />} />
           <Route path="/login" element={<Login className="login" />} />
           <Route path="/register" element={<Register className="register" />} />
           <Route
