@@ -27,14 +27,14 @@ const Activity = ({ id }) => {
             act_link,
           }) => (
             <div className="activity_detail" key={act_id}>
-              <h3>Title: {act_title}</h3>
-              <h3>Summary: {act_activity}</h3>
-              <h3>Category: {typ_name}</h3>
-              <h3>Participants: {act_participants}</h3>
-              <h3>Accessibility: {act_accessibility}</h3>
-              <h3>Duration: {act_duration}</h3>
-              <h3>Kidfriendly: {act_kidfriendly}</h3>
-              <h3>More info: {act_link}</h3>
+              <h4>Title: {act_title}</h4>
+              <h4>Summary: {act_activity}</h4>
+              <h4>Category: {typ_name}</h4>
+              <h4>Participants: {act_participants}</h4>
+              <h4>Accessibility: {act_accessibility}</h4>
+              <h4>Duration: {act_duration}</h4>
+              <h4>Kidfriendly: {act_kidfriendly}</h4>
+              <h4>More info: {act_link}</h4>
             </div>
           )
         )}

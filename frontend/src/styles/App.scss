@@ -478,7 +478,19 @@ body{
       }
     }
 }
-
+.activity_detail {
+  margin: 0 auto;
+  width: 500px;
+  padding: 20px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  background-color: grey;
+  h4 {
+    color: whitesmoke;
+  }
+}
 
 
 

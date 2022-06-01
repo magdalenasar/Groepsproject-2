@@ -1,7 +1,5 @@
-import { ElementType } from "react";
 import { useAxios } from "../../hooks/hooks";
 import { Link } from "react-router-dom";
-import { _renderMatches } from "react-router/lib/hooks";
 
 const ActivityGrid = (props) => {
   const [activities] = useAxios(
@@ -17,10 +15,10 @@ const ActivityGrid = (props) => {
     <>
       {data.length > 0 &&
         data
-          .filter((a) => {
+          /*.filter((a) => {
             a.act_typ_id == ;
-          })
-          .map(({ act_id, act_title, act_typ_id }) => (
+          })*/
+          .map(({ act_id, act_title }) => (
             <div className={className} key={act_id}>
               <div className={className2}>
                 <Link to="/categoryview">
