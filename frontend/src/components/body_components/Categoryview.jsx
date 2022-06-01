@@ -1,9 +1,9 @@
 import Title from "../base_components/Title";
 import Search from "../base_components/Search";
-import Grid from "../base_components/Grid";
+import ActivityGrid from "../base_components/ActivityGrid";
 import PaginationArrows from "../base_components/PaginationArrows";
 
-const Categoryview = props => {
+const Categoryview = (props) => {
   const { className, children } = props;
   return (
     <div className={className}>
@@ -11,7 +11,7 @@ const Categoryview = props => {
         <Title className="gallery_title">{children}</Title>
         <Search className="gallery_search" value="" />
       </div>
-      <Grid className="gallery_grid_3/6" />
+      <ActivityGrid className="gallery_grid_3/6" />
       <PaginationArrows className="pagination" />
     </div>
   );

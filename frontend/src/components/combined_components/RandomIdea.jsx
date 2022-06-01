@@ -3,10 +3,10 @@ import Activity from "./Activity";
 import Button from "../base_components/Button";
 
 import { useState } from "react";
-import { useAxios } from "../../hooks/hooks";
+import { useAxios } from "./../../hooks/hooks";
 import Title from "../base_components/Title";
 
-const RandomIdea = props => {
+const RandomIdea = (props) => {
   const { className } = props;
   const [clicked, setClicked] = useState(false);
   const [randomActivityID, setRandomActivityID] = useState(null);
@@ -15,7 +15,7 @@ const RandomIdea = props => {
     `https://wdev2.be/fs_tijl/groepswerk2/api/activity/${randomActivityID}`
   );
 
-  const handleClick = event => {
+  const handleClick = (event) => {
     // console.log("in onClick", event);
     event.preventDefault();
     const randomID = (min, max) =>
