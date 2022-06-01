@@ -33,10 +33,6 @@ body{
       color: rgb(0, 0, 0, 0.5);
     }
   }
-  h3{
-    display: inline;
-    background-image: linear-gradient(#EDF2F8 20%,#F7865E 50%,#EDF2F8 20%);    
-  }
   .pagination {
     margin-bottom: 8px;
     text-align: center;
@@ -116,33 +112,34 @@ body{
       }
     }
     .random{
-      color: $accent-color;
-      background-color: $light-accent;
-      font-family: arial black;
-      font-size: 18px;
-      font-weight: 800;
-      color: #F7865E;
-      padding: 15px 32px;
-      margin-bottom: 40px;
-      border-radius: 50px;
-      box-shadow: 5px 10px 18px #d3e1f2;
-      cursor: pointer;
-      &:hover{
-        transition-duration: 0.4s;
-        background-color: #F7865E;
-        color: #FCE9E2;
-        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-      }
+      // color: $accent-color;
+      // background-color: $light-accent;
+      // font-family: arial black;
+      // font-size: 18px;
+      // font-weight: 800;
+      // color: #F7865E;
+      // padding: 15px 32px;
+      // margin-bottom: 40px;
+      // border-radius: 50px;
+      // box-shadow: 5px 10px 18px #d3e1f2;
+      // cursor: pointer;
+      // &:hover{
+      //   transition-duration: 0.4s;
+      //   background-color: #F7865E;
+      //   color: #FCE9E2;
+      //   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      // }
     }
   }
   .home{
     font-family: $font-body;
-     min-height: calc(100vh - (70px + 209px));     
+     min-height: calc(100vh - (70px + 209px));  
     .slider{
       border-bottom: 1px solid rgb(213, 213, 213);
       .slider_title{
         padding-left: 20px;
         font-size: 19px;
+        background-image: linear-gradient(#EDF2F8 20%,#F7865E 50%,#EDF2F8 20%);
       }
       .slider_row{
         display: grid;
@@ -150,7 +147,7 @@ body{
         gap: 40px;
         padding: 10px;
         margin: 10px 0 10px 0;
-        
+                
         .slider_item{
           .imgholder{
             position: relative;
@@ -168,6 +165,8 @@ body{
                 bottom: 0;
                 margin-bottom:5px;
                 border-radius: 0 0 0 10px ;
+                color: whitesmoke;
+                background-color: gray;
               }
             }
           }
@@ -186,6 +185,7 @@ body{
             padding-left: 20px;
             position: absolute;
             left: 0;
+            background-image: linear-gradient(#EDF2F8 20%,#F7865E 50%,#EDF2F8 20%);
           }
           .gallery_search{
             border: 1px solid gray;
@@ -232,6 +232,8 @@ body{
                 bottom: 0;
                 margin-bottom: 4px;
                 border-radius: 0 0 0 10px ;
+                color: whitesmoke;
+                background-color: gray;
             }
           }
         }
@@ -260,6 +262,7 @@ body{
           font-size: 18px;
           border-radius: 5px;
           line-height: 22px;
+          // background-color: transparent;
           border: 2px solid grey;
           transition: all 0.3s;
           padding: 13px;
@@ -400,6 +403,7 @@ body{
       }
     }
     &-heading, &-footing, &-signin{
+      // padding: 20px;
       text-align: center;
       p{
         padding: 5px;
@@ -419,6 +423,7 @@ body{
         font-size: 18px;
         border-radius: 5px;
         line-height: 22px;
+        // background-color: transparent;
         border: 2px solid grey;
         transition: all 0.3s;
         padding: 10px;
@@ -449,7 +454,29 @@ body{
     font-weight: 800;
     padding: 16px 0 16px 0;
   }
-  
+  .random-activity{
+    text-align: center;
+    margin-bottom: auto;
+    .randomize {
+        color: $accent-color;
+        background-color: $light-accent;
+        font-family: arial black;
+        font-size: 18px;
+        font-weight: 800;
+        color: #F7865E;
+        padding: 15px 32px;
+        margin-bottom: 40px;
+        border-radius: 50px;
+        box-shadow: 5px 10px 18px #d3e1f2;
+        cursor: pointer;
+        &:hover {
+          transition-duration: 0.4s;
+          background-color: #F7865E;
+          color: #FCE9E2;
+          box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
+    }
 }
 .activity_detail {
   margin: 0 auto;
