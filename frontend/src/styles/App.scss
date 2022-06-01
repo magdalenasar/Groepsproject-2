@@ -111,25 +111,7 @@ body{
         text-transform: uppercase;
       }
     }
-    .random{
-      // color: $accent-color;
-      // background-color: $light-accent;
-      // font-family: arial black;
-      // font-size: 18px;
-      // font-weight: 800;
-      // color: #F7865E;
-      // padding: 15px 32px;
-      // margin-bottom: 40px;
-      // border-radius: 50px;
-      // box-shadow: 5px 10px 18px #d3e1f2;
-      // cursor: pointer;
-      // &:hover{
-      //   transition-duration: 0.4s;
-      //   background-color: #F7865E;
-      //   color: #FCE9E2;
-      //   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
-      // }
-    }
+
   }
   .home{
     font-family: $font-body;
@@ -480,6 +462,7 @@ body{
       }
     }
 }
+
 .activity_detail {
   margin: 0 auto;
   width: 500px;

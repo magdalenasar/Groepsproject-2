@@ -35,7 +35,8 @@ const RandomIdea = (props) => {
             <Title>Your random activity idea: </Title>
           )}
           {randomActivityID && <Activity id={randomActivityID} />}
-        </div>
+          {randomActivityID !== null  &&( <a href="/" className="randomize">Close</a>)}
+        </div> 
       </div>
     </>
   );
