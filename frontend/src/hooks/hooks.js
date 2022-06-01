@@ -11,15 +11,16 @@ export function useAxios(path) {
       try {
         setLoading(true);
         const { data } = await axios(path);
+        console.log("Dit komt uit hooks.js: ", data[1]);
         setLoading(false);
         setError(false);
         setData(data);
-        console.log("Dit komt uit hooks.js: ", data.activities);
       } catch (error) {
         setLoading(false);
         setError(true);
       }
     })();
   }, []);
+  // custom hook returns 3 values
   return [data, loading, error];
 }
