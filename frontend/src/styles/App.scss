@@ -134,11 +134,13 @@ body{
   .home{
     font-family: $font-body;
      min-height: calc(100vh - (70px + 209px));  
+     
     .slider{
       border-bottom: 1px solid rgb(213, 213, 213);
       .slider_title{
         padding-left: 20px;
         font-size: 19px;
+        display: inline;
         background-image: linear-gradient(#EDF2F8 20%,#F7865E 50%,#EDF2F8 20%);
       }
       .slider_row{
@@ -147,7 +149,7 @@ body{
         gap: 40px;
         padding: 10px;
         margin: 10px 0 10px 0;
-                
+        
         .slider_item{
           .imgholder{
             position: relative;
@@ -165,8 +167,8 @@ body{
                 bottom: 0;
                 margin-bottom:5px;
                 border-radius: 0 0 0 10px ;
-                color: whitesmoke;
                 background-color: gray;
+                color: whitesmoke;
               }
             }
           }
@@ -232,8 +234,8 @@ body{
                 bottom: 0;
                 margin-bottom: 4px;
                 border-radius: 0 0 0 10px ;
-                color: whitesmoke;
                 background-color: gray;
+                color: whitesmoke;
             }
           }
         }
