@@ -1,43 +1,7 @@
-import React from "react";
-import Img from "./base_components/Img";
-import Paragraph from "./base_components/Paragraph";
-import Button from "./base_components/Button";
-
-const Card = () => {
-  return (
-    <>
-      {/* {isError && <p>An error occured..r</p>}
-      {isLoading && <p>Loading...</p>}
-      {activities &&
-        activities.map(({ activity, availability, type, partipicipants, accessibility, duration, kidFriendly,link }) => (  */}
-          <div className="flex-grid">
-            <div className="col">
-              <h2 className="card-title"> Activity: { }</h2>
-              <figure>
-               <Img className='card-photo' />
-              <figcaption> Category: {  }</figcaption>
-              </figure> 
-              <Paragraph className='card-body'>
-                Availability: {}
-                Partipicipants: {  }
-                Accessibility:  {  }
-                Duration: { }
-                Kid friendly factor:{}
-                More: {}
-              </Paragraph>
-            </div>
-            <Button className="favorite">♥️</Button>
-            <Button className="done">✔️</Button>
-          </div>
-        {/* ) */}
-      {/* )}  */}
-    </>
-  );
-};
-
-export default Card;
-
-//full example:
+// import React from "react";
+// import Img from "./base_components/Img";
+// import Paragraph from "./base_components/Paragraph";
+// import Button from "./base_components/Button";
 
 // const Card = () => {
 //   return (

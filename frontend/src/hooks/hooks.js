@@ -2,9 +2,9 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 export function useAxios(path) {
-    const [data, setData] = useState([]);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(false);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     (async () => {
@@ -14,6 +14,7 @@ export function useAxios(path) {
         setLoading(false);
         setError(false);
         setData(data);
+        console.log("Dit komt uit hooks.js: ", data.activities);
       } catch (error) {
         setLoading(false);
         setError(true);
