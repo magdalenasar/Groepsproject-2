@@ -1,22 +1,18 @@
 import React from "react";
 import Activity from "./Activity";
 import Button from "../base_components/Button";
+import Title from "../base_components/Title";
 
 import { useState } from "react";
 import { useAxios } from "./../../hooks/hooks";
-import Title from "../base_components/Title";
 
-const RandomIdea = (props) => {
-  const { className } = props;
-  const [clicked, setClicked] = useState(false);
+const RandomIdea = () => {
   const [randomActivityID, setRandomActivityID] = useState(null);
-
   const [data, loading, error] = useAxios(
     `https://wdev2.be/fs_tijl/groepswerk2/api/activity/${randomActivityID}`
   );
 
   const handleClick = (event) => {
-    // console.log("in onClick", event);
     event.preventDefault();
     const randomID = (min, max) =>
       Math.floor(Math.random() * (max - min)) + min;
@@ -27,15 +23,17 @@ const RandomIdea = (props) => {
     <>
       <div className="random-activity">
         <Button className="randomize" onClick={handleClick}>
-          Get a Random activity idea →{" "}
+          { randomActivityID == null ? 'Get a Random activity idea →' : "Get another one"}
         </Button>
 
         <div className="random-activity__generated">
           {randomActivityID !== null && (
-            <Title>Your random activity idea: </Title>
+            <h2 className="random-answer title">Your random activity idea is:</h2>
+            
           )}
           {randomActivityID && <Activity id={randomActivityID} />}
-        </div>
+          {randomActivityID !== null  &&( <a href="/" className="randomize">Close</a>)}
+        </div> 
       </div>
     </>
   );

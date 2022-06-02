@@ -2,7 +2,7 @@
 
 ## React/PHP OOP app that offers users numerous ideas to cure their boredom
 
-[Link to the project](https://www.wdev.getinspired.com/)
+[Link to the project](https://www.wdev2/fs_tijl/groepswerk2.com/)
 
 > Don't be bored, getInspired is built to address daily boredom. Filter and search through categories and add your favorites ideas to your personal list
 
@@ -12,7 +12,7 @@
 - React
 - Redux Toolkit
 - SCSS
-- PHP OOP
+- PHP
 
 > Usage
 

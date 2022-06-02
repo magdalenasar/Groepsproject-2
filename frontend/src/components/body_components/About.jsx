@@ -8,7 +8,7 @@ const About = props => {
     <div className={className}>
       <div className="contact">
         <div>
-          <Title>Contact us</Title>
+          <h1 className="title">Contact us</h1>
         </div>
         <div className="contact-form">
           <form

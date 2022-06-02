@@ -20,6 +20,16 @@ const Navbar = props => {
               About
             </Link>
           </Button>
+          <Button className="activities">
+            <Link className="link" to="/activities">
+              Activities
+            </Link>
+          </Button>
+          <Button className="add">
+            <Link className="link" to="/add">
+              Add +
+            </Link>
+          </Button>
         </nav>
         <nav className="right">
           <Button className="login_btn">

@@ -10,6 +10,9 @@ import Categoryview from "./components/body_components/Categoryview";
 import Userview from "./components/body_components/Userview";
 import Error404 from "./components/body_components/Error404";
 import Header from "./components/body_components/Header";
+import Activity from "./components/combined_components/Activity";
+import Activities from "./components/combined_components/Activities";
+import Add from "./components/combined_components/Add";
 
 const App = props => {
   const { className } = props;
@@ -22,10 +25,10 @@ const App = props => {
           <Route path="/about" element={<About className="about" />} />
           <Route path="/login" element={<Login className="login" />} />
           <Route path="/register" element={<Register className="register" />} />
-          <Route
-            path="/categoryview"
-            element={<Categoryview className="categoryview" />}
-          />
+          <Route path="/activity" element={<Activity className="activity_detail" />} />
+          <Route path="/activities" element={<Activities className="activities" />} />
+          <Route path="/add" element={<Add className="add" />} />
+          <Route path="/categoryview" element={<Categoryview className="categoryview" />} />
           <Route path="/userview" element={<Userview className="userview" />} />
           <Route path="*" element={<Error404 className="error" />} />
         </Routes>
