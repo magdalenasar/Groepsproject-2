@@ -502,7 +502,6 @@ body{
     a{
       color: #ddd;
     }
-
   }
   .edit-delete{
     color: $accent-color;
@@ -528,3 +527,65 @@ body{
     grid-template-columns:  repeat(auto-fit,minmax(500px, 1fr));
     gap: 20px;
   }
+
+.add {
+  width: 100%;;
+
+  h3 {
+    justify-self: flex-start;
+  }
+
+  &-form {
+    font-family: $font-body;
+    width: 50%;
+    margin: 50px auto;
+    color: $textColor-body;
+
+    .feedback-input {
+      color: $textColor-body;
+      font-weight: 500;
+      font-size: 18px;
+      border-radius: 5px;
+      line-height: 22px;
+      // background-color: transparent;
+      border: 2px solid grey;
+      transition: all 0.3s;
+      padding: 13px;
+      margin-bottom: 15px;
+      width: 100%;
+      outline: 0;
+
+      &:focus {
+        border: 2px solid $accent-color;
+      }
+    }
+
+    [type="submit"] {
+      color: $accent-color;
+      font-family: $font-body;
+      width: 100%;
+      background: $light-accent;
+      border-radius: 5px;
+      border: 0;
+      cursor: pointer;
+      font-size: 24px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      transition: all 0.3s;
+      margin-top: -4px;
+      font-weight: 700;
+
+      &:hover {
+        background: $accent-color;
+        color: $light-accent;
+      }
+
+      @media screen and (max-width: 600px) {
+
+        input[type=submit] {
+          width: 100%;
+          margin-top: 0;
+        }
+      }
+    }
+} }
