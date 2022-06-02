@@ -7,8 +7,6 @@ const Activity = ({ id }) => {
     refetchOnReconnect: true,
   });
 
-  // const activity = JSON.parse(data.activities[act_id]);
-
   return (
     <>
       {isLoading && <p>Loading...</p>}
@@ -26,15 +24,21 @@ const Activity = ({ id }) => {
             act_kidfriendly,
             act_link,
           }) => (
-            <div className="activity_detail" key={act_id}>
-              <h4>Title: {act_title}</h4>
-              <h4>Summary: {act_activity}</h4>
-              <h4>Category: {typ_name}</h4>
-              <h4>Participants: {act_participants}</h4>
-              <h4>Accessibility: {act_accessibility}</h4>
-              <h4>Duration: {act_duration}</h4>
-              <h4>Kidfriendly: {act_kidfriendly}</h4>
-              <h4>More info: {act_link}</h4>
+            <div className="activity_detail card" key={act_id}>
+              <h2>{act_title}</h2>
+              <br />
+              <hr/>
+              <figcaption>{act_activity}</figcaption>
+              <pre>Category: {typ_name}</pre>
+              <p>Participants: {act_participants}</p>
+              <p>Accessibility: {act_accessibility}</p>
+              <p>Duration: {act_duration}</p>
+              <p>Kidfriendly factor: {act_kidfriendly}</p>
+              <p>More info: {act_link} </p>
+              <div className="edit-delete">
+                <a>edit</a>
+                <a>delete</a>
+              </div>
             </div>
           )
         )}

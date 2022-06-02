@@ -13,7 +13,7 @@ const SliderGrid = props => {
         favorites.map(({ usr_act_id, title, image }) => (
           <div className={className} key={usr_act_id}>
             <div className={className2}>
-              <Link to="/detail">
+              <Link to="/activity_detail">
                 <img src={`./src/image/${image}`} alt={title} />
                 <h3>{title}</h3>
               </Link>
