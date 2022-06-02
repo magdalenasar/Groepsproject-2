@@ -17,7 +17,6 @@ const Activities = () => {
       <RandomIdea/>
       <h1 className='title'>List of fun activity ideas to explore: </h1>
       <div className="cards">
-        {/* <Search></Search> */}
         {error && <p>ERROR</p>}
         {loading && <p>LOADING...</p>} 
         {activities.length > 0 && 

@@ -25,7 +25,7 @@ const App = props => {
           <Route path="/about" element={<About className="about" />} />
           <Route path="/login" element={<Login className="login" />} />
           <Route path="/register" element={<Register className="register" />} />
-          <Route path="/activity_detail" element={<Activity className="activity_detail" />} />
+          <Route path="/activity" element={<Activity className="activity_detail" />} />
           <Route path="/activities" element={<Activities className="activities" />} />
           <Route path="/add" element={<Add className="add" />} />
           <Route path="/categoryview" element={<Categoryview className="categoryview" />} />

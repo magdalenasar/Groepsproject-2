@@ -1,12 +1,13 @@
 import React from "react";
-import { useGetActivityByIdQuery } from "../../data/activityApi";
+import { useGetActivityByIdQuery,  useRemoveActivityMutation,useUpdateActivityMutation } from "../../data/activityApi";
 
 const Activity = ({ id }) => {
   const { data, isLoading, isError } = useGetActivityByIdQuery(id, {
     refetchOnFocus: true,
     refetchOnReconnect: true,
   });
-
+ const [removeActivity] = useRemoveActivityMutation();
+ const [updateActivity] = useUpdateActivityMutation();
   return (
     <>
       {isLoading && <p>Loading...</p>}
@@ -24,7 +25,7 @@ const Activity = ({ id }) => {
             act_kidfriendly,
             act_link,
           }) => (
-            <div className="activity_detail card" key={act_id}>
+            <div className="activity_detail card" contentEditable="true" key={act_id}>
               <h2>{act_title}</h2>
               <br />
               <hr/>
@@ -36,8 +37,8 @@ const Activity = ({ id }) => {
               <p>Kidfriendly factor: {act_kidfriendly}</p>
               <p>More info: {act_link} </p>
               <div className="edit-delete">
-                <a>edit</a>
-                <a>delete</a>
+                {data.activity} <a onClick={() => {updateActivity({act_id, body});}}>edit</a>
+                <a onClick={() => {removeActivity(id)}}>delete</a>
               </div>
             </div>
           )
